@@ -46,7 +46,10 @@ export class AuthService {
     const token = localStorage.getItem('token');
     const url = `${this.baseURL}/auth/check-token`;
 
-    if(!token) return of(false);
+    if(!token) {
+      this.logout();
+      return of(false);
+    }
 
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
 
@@ -64,12 +67,16 @@ export class AuthService {
 
   }
 
-
   private setAuthentication(user: User, token: string) {
     this._currentUser.set(user);
     this._authStatus.set( AuthStatus.authenticated );
     localStorage.setItem('token', token);
   }
 
+  public logout() {
+    localStorage.removeItem('token');
+    this._authStatus.set( AuthStatus.notAuthenticated );
+    this._currentUser.set(null);
+  }
 
 }

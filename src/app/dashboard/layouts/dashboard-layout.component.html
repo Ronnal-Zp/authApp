@@ -1,9 +1,13 @@
-<h1>Dashboard</h1>
-<hr>
+<div class="d-flex justify-content-around align-items-center p-2">
+  <h3>Dashboard</h3>
 
-<pre>
-  {{ user() | json }}
-</pre>
+  <h3>{{ user()?.name | uppercase }}</h3>
 
-<a routerLink="auth/login">Ir a Login</a>
-<router-outlet></router-outlet>
+  <button class="btn btn-dark" (click)="onLogout()">Logout</button>
+</div>
+<hr class="mx-0 my-0">
+
+<div class="container">
+  <p class="mt-2 text-center">Aprendiendo <b>Angular</b> con estilo 🎲</p>
+  <router-outlet></router-outlet>
+</div>
