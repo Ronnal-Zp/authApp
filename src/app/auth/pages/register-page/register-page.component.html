@@ -1,1 +1,52 @@
-<p>register-page works!</p>
+<h2 class="text-center mb-4">Crear cuenta</h2>
+
+<form [formGroup]="formRegister" (ngSubmit)="onSubmit()">
+  <div class="row mb-3">
+    <label for="inputName3" class="col-sm-3 col-form-label">Nombre</label>
+    <div class="col-sm-9">
+      <input  formControlName="name"
+              type="text"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': formValidations.isInvalidFormInput( formRegister.get('name') ) }"
+              id="inputName">
+
+
+      <div class="invalid-feedback">
+        {{ formValidations.getValidationMessage(formRegister.get('name')?.errors) }}
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <label for="inputEmail3" class="col-sm-3 col-form-label">Email</label>
+    <div class="col-sm-9">
+      <input  formControlName="email"
+              type="email"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': formValidations.isInvalidFormInput( formRegister.get('email') ) }"
+              id="inputEmail3">
+
+      <div class="invalid-feedback">
+        {{ formValidations.getValidationMessage(formRegister.get('email')?.errors) }}
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <label for="inputPassword3" class="col-sm-3 col-form-label">Password</label>
+    <div class="col-sm-9">
+      <input  formControlName="password"
+              type="password"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': formValidations.isInvalidFormInput( formRegister.get('password') ) }"
+              id="inputPassword3">
+
+      <div class="invalid-feedback">
+        {{ formValidations.getValidationMessage(formRegister.get('password')?.errors) }}
+      </div>
+    </div>
+  </div>
+  <button [disabled]="formRegister.invalid" type="submit" class="btn btn-primary">Registrarse</button>
+</form>
+
+<a class="txt1 p-b-17 mt-3 d-block pb-0 float-end" routerLink="/auth/login">¿Ya tienes cuenta?</a>
