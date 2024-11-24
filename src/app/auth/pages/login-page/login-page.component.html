@@ -1,7 +1,7 @@
 <form [formGroup]="formLogin"
       (ngSubmit)="onSubmit()"
       class="login100-form"
-      autocomplete="off">
+      >
 
     <span class="login100-form-title p-b-49">
         Login
@@ -11,6 +11,7 @@
         <span class="label-input100">Correo</span>
         <input formControlName="email"
                class="input100"
+               autocomplete="email"
                type="email"
                placeholder="Correo electrónico">
         <span class="focus-input100"></span>
@@ -20,6 +21,7 @@
         <span class="label-input100">Contraseña</span>
         <input formControlName="password"
                class="input100"
+               autocomplete="current-password"
                type="password"
                placeholder="Ingrese su contraseña">
         <span class="focus-input100"></span>

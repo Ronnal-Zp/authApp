@@ -19,8 +19,8 @@ export class LoginPageComponent {
   private AuthService = inject(AuthService);
 
   public formLogin: FormGroup = this.fb.group({
-    email: ['', [Validators.required, Validators.email]],
-    password: ['', [Validators.required, Validators.minLength(6)]]
+    email: ['ronn.zp.3@gmail.com', [Validators.required, Validators.email]],
+    password: ['123456', [Validators.required, Validators.minLength(6)]]
   })
 
   onSubmit() {
